@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="200" height="200" rx="20" fill="#f8fafc" />
+  <circle cx="100" cy="100" r="85" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="2"/>
+
+  <!-- Referee Torso -->
+  <path d="M 60 190 L 60 145 C 60 130 80 120 100 120 C 120 120 140 130 140 145 L 140 190 Z" fill="#ffffff" stroke="#0f172a" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Stripes -->
+  <path d="M 75 125 L 75 190" stroke="#0f172a" stroke-width="6"/>
+  <path d="M 100 120 L 100 190" stroke="#0f172a" stroke-width="6"/>
+  <path d="M 125 125 L 125 190" stroke="#0f172a" stroke-width="6"/>
+
+  <!-- Head -->
+  <circle cx="100" cy="90" r="22" fill="#fed7aa" stroke="#0f172a" stroke-width="3"/>
+  <path d="M 78 85 C 80 70 90 68 100 68 C 110 68 120 70 122 85 Z" fill="#334155"/>
+
+  <!-- Arm waving side to side across body (Backcourt Violation) -->
+  <!-- Left arm pointing across chest -->
+  <path d="M 130 135 Q 110 115 65 110" fill="none" stroke="#0f172a" stroke-width="8" stroke-linecap="round"/>
+  <!-- Hand waving -->
+  <path d="M 65 110 L 50 102" stroke="#fed7aa" stroke-width="8" stroke-linecap="round"/>
+  <!-- Index finger pointing/waving -->
+  <path d="M 50 102 L 38 98" stroke="#fed7aa" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Motion arrows indicating waving arm across body -->
+  <path d="M 35 85 Q 55 70 80 82" fill="none" stroke="#ea580c" stroke-width="3" stroke-dasharray="4,3"/>
+  <polygon points="34,80 32,90 41,88" fill="#ea580c"/>
+  <polygon points="83,86 85,76 75,79" fill="#ea580c"/>
+
+  <!-- Center court line indicator -->
+  <path d="M 40 170 L 160 170" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6,4"/>
+  <circle cx="100" cy="170" r="12" fill="none" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- Label badge -->
+  <rect x="35" y="15" width="130" height="26" rx="13" fill="#ea580c"/>
+  <text x="100" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">FIBA Signal: Rückspiel</text>
+</svg>

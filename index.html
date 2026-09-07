@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="Interaktives FIBA Basketball Regel-Quiz für Schiedsrichter, Kampfgericht, Spieler, Trainer und Zuschauer im Breitensport.">
+  <meta name="theme-color" content="#ea580c">
+  <title>FIBA Basketball Regel-Quiz 🏀</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏀</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-wrapper">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-logo">
+        <span class="logo-ball">🏀</span>
+        <div class="header-titles">
+          <h1 class="app-title">RefQuiz</h1>
+          <span class="app-subtitle">FIBA Basketball Breitensport</span>
+        </div>
+      </div>
+      <div id="header-seed-badge" class="seed-badge hidden" title="Challenge-Modus aktiv">
+        <span>⚔️ Challenge</span>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="app-main">
+
+      <!-- SCREEN 1: ROLLENAUSWAHL -->
+      <section id="screen-role" class="screen screen-active">
+        <div class="intro-card">
+          <h2 class="section-title">Wer bist du?</h2>
+          <p class="section-desc">Wähle deine Rolle im Basketball aus. Wir stellen dir 5 passende Regelfragen für dein Spiel!</p>
+        </div>
+
+        <div class="roles-grid">
+          <button type="button" class="role-card" data-role="schiedsrichter">
+            <span class="role-icon">🟨</span>
+            <div class="role-info">
+              <span class="role-name">Schiedsrichter</span>
+              <span class="role-details">Alle Fragen: Handzeichen, Zylinderprinzip, knifflige Pfiffe</span>
+            </div>
+            <span class="role-arrow">➔</span>
+          </button>
+
+          <button type="button" class="role-card" data-role="kampfgericht">
+            <span class="role-icon">⏱️</span>
+            <div class="role-info">
+              <span class="role-name">Kampfgericht</span>
+              <span class="role-details">Anschreibetisch, 24s-Uhr, Handzeichen, Wechsel & Timeouts</span>
+            </div>
+            <span class="role-arrow">➔</span>
+          </button>
+
+          <button type="button" class="role-card" data-role="spieler">
+            <span class="role-icon">🏃</span>
+            <div class="role-info">
+              <span class="role-name">Spieler</span>
+              <span class="role-details">In-Game Regeln: Schrittfehler, Doppeldribbel, Rückspiel, Fouls</span>
+            </div>
+            <span class="role-arrow">➔</span>
+          </button>
+
+          <button type="button" class="role-card" data-role="trainer">
+            <span class="role-icon">📋</span>
+            <div class="role-info">
+              <span class="role-name">Trainer / Coach</span>
+              <span class="role-details">Auszeiten, Spielerwechsel, Bankverhalten, taktische Regeln</span>
+            </div>
+            <span class="role-arrow">➔</span>
+          </button>
+
+          <button type="button" class="role-card" data-role="zuschauer">
+            <span class="role-icon">🍿</span>
+            <div class="role-info">
+              <span class="role-name">Zuschauer & Fans</span>
+              <span class="role-details">Grundregeln & Schiedsrichterzeichen einfach verstehen</span>
+            </div>
+            <span class="role-arrow">➔</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- SCREEN 2: QUIZ DURCHLAUF -->
+      <section id="screen-quiz" class="screen hidden">
+        <!-- Top Status & Progress Bar -->
+        <div class="quiz-topbar">
+          <span id="quiz-role-badge" class="badge-role">Rolle</span>
+          <span id="quiz-progress-text" class="progress-text">Frage 1 von 5</span>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div id="quiz-progress-fill" class="progress-fill" style="width: 20%;"></div>
+        </div>
+
+        <!-- Question Card -->
+        <article class="question-card">
+          <!-- Dynamic Media Container (SVG, GIF, Image, Video, YouTube) -->
+          <div id="media-container" class="media-box"></div>
+
+          <!-- Question Heading -->
+          <h2 id="question-text" class="question-heading">Fragetext lädt...</h2>
+
+          <!-- Answers Container with Feedback Overlay -->
+          <div class="answers-wrapper">
+            <div id="answers-grid" class="answers-grid">
+              <!-- Buttons dynamically generated in app.js -->
+            </div>
+
+            <!-- Focused Feedback Overlay -->
+            <div id="feedback-overlay" class="feedback-overlay hidden" aria-live="polite">
+              <div class="feedback-content">
+                <div id="feedback-status" class="feedback-status">
+                  <span id="feedback-icon" class="feedback-icon">🎉</span>
+                  <h3 id="feedback-title" class="feedback-title">Richtig!</h3>
+                </div>
+
+                <p id="feedback-explanation" class="feedback-text"></p>
+                <span id="feedback-rule" class="feedback-rule-badge">FIBA Art. X</span>
+
+                <button type="button" id="btn-next-question" class="btn btn-primary btn-block">
+                  <span>Weiter</span>
+                  <span class="btn-arrow">➔</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- SCREEN 3: ERGEBNIS SCREEN -->
+      <section id="screen-result" class="screen hidden">
+        <div class="result-card">
+          <div id="result-trophy" class="result-trophy">🏆</div>
+          <span id="result-role-badge" class="badge-role">Rolle: Spieler</span>
+          <h2 id="result-headline" class="result-title">Quiz beendet!</h2>
+          
+          <div class="score-display">
+            <span id="result-score-number" class="score-number">4 / 5</span>
+            <span class="score-label">Fragen korrekt</span>
+          </div>
+
+          <p id="result-feedback-message" class="result-message">
+            Großartig! Du kennst dich im Basketball richtig gut aus!
+          </p>
+
+          <!-- Wordle-Style Emoji Summary -->
+          <div class="wordle-preview-box">
+            <span class="wordle-preview-title">Deine Runde:</span>
+            <div id="result-emoji-row" class="emoji-row">🟩🟩🟥🟩🟩</div>
+          </div>
+
+          <!-- Actions -->
+          <div class="result-actions">
+            <button type="button" id="btn-share" class="btn btn-share btn-block">
+              <span>📤 Ergebnis teilen & Challenge senden</span>
+            </button>
+            <button type="button" id="btn-restart" class="btn btn-secondary btn-block">
+              <span>🔄 Neues Quiz starten</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden" role="alert">In die Zwischenablage kopiert! 📋</div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Basierend auf den offiziellen <strong>FIBA Basketball-Regeln</strong> (Breitensport & Amateure).</p>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
