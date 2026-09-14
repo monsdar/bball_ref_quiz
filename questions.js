@@ -1,5 +1,5 @@
 /**
- * Basketball Regeltest - Fragenpool
+ * Basketball Regeltest - Fragenpool (Offizielle DBB / FIBA Regeln)
  * 
  * Jede Frage enthält:
  * - id: Eindeutige Kennung
@@ -49,7 +49,7 @@ const QUESTIONS = [
       "Auszeit angefordert"
     ],
     korrekteAntwort: 0,
-    erklaerung: "Eine erhobene geschlossene Faust bedeutet: Stoppen der Spieluhr wegen eines persönlichen Fouls. Danach zeigt der Schiedsrichter auf den betreffenden Spieler und meldet die Spielernummer sowie Foulart am Anschreibetisch.",
+    erklaerung: "Eine erhobene geschlossene Faust bedeutet: Stoppen der Spieluhr wegen eines persönlichen Fouls (Art. B). Danach zeigt der Schiedsrichter auf den betreffenden Spieler und meldet die Spielernummer sowie Foulart am Anschreibetisch.",
     meta: {
       zielgruppen: ["schiedsrichter", "kampfgericht", "spieler", "trainer", "zuschauer"],
       kategorie: "handzeichen",
@@ -93,7 +93,7 @@ const QUESTIONS = [
       "Ersatzspieler darf das Feld betreten"
     ],
     korrekteAntwort: 0,
-    erklaerung: "Das Bilden eines 'T' mit beiden Händen signalisiert eine Auszeit (Art. 18). Der Schiedsrichter weist damit das Kampfgericht und beide Teams an, dass die 60-sekündige Auszeit beginnt.",
+    erklaerung: "Das Bilden eines 'T' mit einer flachen Hand und einem Zeigefinger signalisiert eine Auszeit (Art. 18). Der Schiedsrichter weist damit das Kampfgericht und beide Teams an, dass die 60-sekündige Auszeit beginnt.",
     meta: {
       zielgruppen: ["schiedsrichter", "kampfgericht", "trainer", "zuschauer"],
       kategorie: "handzeichen",
@@ -221,7 +221,7 @@ const QUESTIONS = [
     korrekteAntwort: 0,
     erklaerung: "Ein Feldkorb zählt 3 Punkte, wenn der Wurf aus dem Bereich außerhalb der 3-Punkte-Linie losgelassen wird. Beim Absprung darf der Spieler die Linie weder berühren noch übertreten haben (Art. 16).",
     meta: {
-      zielgruppen: ["zuschauer", "spieler"],
+      zielgruppen: ["zuschauer", "spieler", "schiedsrichter"],
       kategorie: "regeln",
       artikel: "Art. 16"
     }
@@ -242,6 +242,314 @@ const QUESTIONS = [
       zielgruppen: ["schiedsrichter", "spieler", "trainer"],
       kategorie: "regeln",
       artikel: "Art. 33"
+    }
+  },
+  {
+    id: "q13",
+    frage: "Was zeigt der Schiedsrichter an, wenn er beide Arme über den Kopf hebt und mit einer Hand das andere Handgelenk festhält?",
+    media: {
+      type: "image",
+      src: "assets/signals/unsportsmanlike_foul.svg",
+      alt: "Schiedsrichter hält Handgelenk über dem Kopf fest"
+    },
+    antworten: [
+      "Unsportliches Foul (Unsportsmanlike Foul)",
+      "Disqualifizierendes Foul",
+      "Uhr anhalten wegen Verletzung",
+      "Halte-Foul (Holding)"
+    ],
+    korrekteAntwort: 0,
+    erklaerung: "Das Festhalten des Handgelenks über dem Kopf signalisiert ein Unsportliches Foul (Art. 37). Es wird verhängt bei übermäßig hartem Kontakt, taktischen Fouls ohne Ballbezug oder dem Stoppen eines Fastbreaks als hinterster Verteidiger. Strafe: Freiwürfe plus Ballbesitz.",
+    meta: {
+      zielgruppen: ["schiedsrichter", "spieler", "trainer", "zuschauer"],
+      kategorie: "handzeichen",
+      artikel: "Art. 37"
+    }
+  },
+  {
+    id: "q14",
+    frage: "Was signalisiert der Schiedsrichter, wenn er mit den flachen Handflächen beider Hände vor der Brust ein deutliches 'T' formt?",
+    media: {
+      type: "image",
+      src: "assets/signals/technical_foul.svg",
+      alt: "Schiedsrichter formt ein T mit beiden flachen Händen"
+    },
+    antworten: [
+      "Technisches Foul (Verhalten/Disziplin)",
+      "Auszeit für das Heimteam",
+      "Doppelfoul beider Teams",
+      "Korb zählt nicht"
+    ],
+    korrekteAntwort: 0,
+    erklaerung: "Ein mit beiden Handflächen gebildetes 'T' zeigt ein Technisches Foul an (Art. 36). Im Unterschied zur Auszeit (wo nur Zeigefinger und Handfläche genutzt werden) berühren sich hier zwei offene Handflächen. Strafe: 1 Freiwurf und Ballbesitz an der Unterbrechungsstelle.",
+    meta: {
+      zielgruppen: ["schiedsrichter", "trainer", "kampfgericht", "spieler", "zuschauer"],
+      kategorie: "handzeichen",
+      artikel: "Art. 36"
+    }
+  },
+  {
+    id: "q15",
+    frage: "Welches Foul signalisiert der Schiedsrichter, wenn er mit der geballten Faust in die geöffnete Handfläche der anderen Hand schlägt?",
+    media: {
+      type: "image",
+      src: "assets/signals/charging_foul.svg",
+      alt: "Schiedsrichter schlägt mit Faust in die flache Handfläche"
+    },
+    antworten: [
+      "Stürmerfoul / Offensivfoul (Charging)",
+      "Blockier-Foul des Verteidigers",
+      "Unsportliches Foul",
+      "Treffer mit Bonus-Freiwurf (And-One)"
+    ],
+    korrekteAntwort: 0,
+    erklaerung: "Faust gegen flache Hand bedeutet Stürmerfoul bzw. Laden mit dem Ball (Art. 33). Der Ballbesitz wechselt zur verteidigenden Mannschaft; für ein Offensivfoul werden niemals Freiwürfe vergeben.",
+    meta: {
+      zielgruppen: ["schiedsrichter", "spieler", "trainer", "zuschauer"],
+      kategorie: "handzeichen",
+      artikel: "Art. 33"
+    }
+  },
+  {
+    id: "q16",
+    frage: "Was zeigt der Schiedsrichter mit beiden nach oben ausgestreckten Daumen ('Thumbs Up') an?",
+    media: {
+      type: "image",
+      src: "assets/signals/jump_ball.svg",
+      alt: "Schiedsrichter streckt beide Daumen nach oben"
+    },
+    antworten: [
+      "Gehaltener Ball / Wechselnder Ballbesitz (Sprungball)",
+      "Treffer ist gültig und zählt",
+      "Auszeit genehmigt",
+      "Freiwurfschütze bereitmachen"
+    ],
+    korrekteAntwort: 0,
+    erklaerung: "Zwei nach oben zeigende Daumen signalisieren einen gehaltenen Ball bzw. eine Sprungballsituation (Art. 12). Da es im modernen Basketball nur zu Spielbeginn einen Hochball gibt, entscheidet danach der Einwurfpfeil am Anschreibetisch über den Ballbesitz.",
+    meta: {
+      zielgruppen: ["schiedsrichter", "kampfgericht", "spieler", "zuschauer"],
+      kategorie: "handzeichen",
+      artikel: "Art. 12"
+    }
+  },
+  {
+    id: "q17",
+    frage: "Was bedeutet die Schiedsrichter-Geste, bei der beide Hände mit den Handflächen nach unten abwechselnd auf und ab bewegt werden?",
+    media: {
+      type: "image",
+      src: "assets/signals/illegal_dribble.svg",
+      alt: "Schiedsrichter bewegt Hände abwechselnd auf und ab"
+    },
+    antworten: [
+      "Unzulässiges Dribbling / Doppeldribbel",
+      "Schrittfehler",
+      "Spieluhr starten",
+      "Aufstützen auf dem Gegenspieler"
+    ],
+    korrekteAntwort: 0,
+    erklaerung: "Die abwechselnde Auf- und Abbewegung beider flacher Hände signalisiert ein unzulässiges Dribbling bzw. Doppeldribbel (Art. 24). Folge: Ballverlust und Einwurf für den Gegner an der Seitenlinie.",
+    meta: {
+      zielgruppen: ["schiedsrichter", "spieler", "zuschauer"],
+      kategorie: "handzeichen",
+      artikel: "Art. 24"
+    }
+  },
+  {
+    id: "q18",
+    frage: "Ein Spieler begeht sein 5. persönliches Foul im Spiel. Wie muss das Kampfgericht vorgehen und wie viel Zeit hat das Team für den Spielerwechsel?",
+    media: null,
+    antworten: [
+      "Kampfgericht zeigt die 5er-Foultafel; der Wechsel muss innerhalb von 30 Sekunden erfolgen",
+      "Der Spieler darf bis zum nächsten Viertel weiterspielen",
+      "Das Team hat 60 Sekunden Zeit und muss zwingend eine Auszeit nehmen",
+      "Der Schiedsrichter schließt das Spiel ab; das Team spielt zu viert weiter"
+    ],
+    korrekteAntwort: 0,
+    erklaerung: "Nach dem 5. Foul (Art. 40) zeigt das Kampfgericht die rote bzw. 5er-Tafel an. Der Spieler muss sofort auf der Bank Platz nehmen. Dem Trainer stehen maximal 30 Sekunden für die Einwechslung eines neuen Spielers zur Verfügung (Art. 19).",
+    meta: {
+      zielgruppen: ["kampfgericht", "trainer", "schiedsrichter"],
+      kategorie: "regeln",
+      artikel: "Art. 40"
+    }
+  },
+  {
+    id: "q19",
+    frage: "Das Kampfgericht betätigt versehentlich das Hupensignal, während sich ein Spieler im Wurfversuch befindet und der Ball durch den Ring fällt. Zählt der Korb?",
+    media: null,
+    antworten: [
+      "Ja, der Treffer zählt regulär",
+      "Nein, die Hupe macht den Ball sofort tot; es gibt Sprungball",
+      "Nein, der Wurf muss wiederholt werden",
+      "Nur wenn der Schiedsrichter die Hupe vor dem Wurf gehört hat"
+    ],
+    korrekteAntwort: 0,
+    erklaerung: "Ein versehentliches oder irrtümliches Signal des Kampfgerichts macht den Ball nicht tot, wenn sich ein Ball im Wurfversuch zum Korb befindet (Art. 10). Geht der Ball hinein, zählt der Treffer vollwertig.",
+    meta: {
+      zielgruppen: ["kampfgericht", "schiedsrichter", "trainer"],
+      kategorie: "regeln",
+      artikel: "Art. 10"
+    }
+  },
+  {
+    id: "q20",
+    frage: "Ab welchem Mannschaftsfoul eines Teams in einem Spielviertel werden bei jedem weiteren persönlichen Abwehrfoul 2 Freiwürfe verhängt (Teamfoul-Bonus)?",
+    media: null,
+    antworten: [
+      "Ab dem 5. Mannschaftsfoul (nach 4 Mannschaftsfouls)",
+      "Ab dem 4. Mannschaftsfoul",
+      "Ab dem 6. Mannschaftsfoul",
+      "Erst ab dem 7. Mannschaftsfoul"
+    ],
+    korrekteAntwort: 0,
+    erklaerung: "Befindet sich eine Mannschaft in der Mannschaftsfoul-Strafe (nach dem 4. Foul im Viertel, Art. 41), wird jedes nachfolgende persönliche Abwehrfoul an einem Spieler ohne Wurfaktion mit 2 Freiwürfen bestraft.",
+    meta: {
+      zielgruppen: ["kampfgericht", "trainer", "spieler", "schiedsrichter"],
+      kategorie: "regeln",
+      artikel: "Art. 41"
+    }
+  },
+  {
+    id: "q21",
+    frage: "Wer darf sich nach offiziellen DBB-Regeln nicht länger als 3 aufeinanderfolgende Sekunden in der gegnerischen Zone (Restricted Area) aufhalten?",
+    media: null,
+    antworten: [
+      "Nur Spieler des angreifenden Teams bei Ballkontrolle im Vorfeld",
+      "Sowohl Angreifer als auch Verteidiger gleichermaßen",
+      "Nur der Spieler mit direktem Ballbesitz",
+      "Ausschließlich der Center-Spieler"
+    ],
+    korrekteAntwort: 0,
+    erklaerung: "Die 3-Sekunden-Regel (Art. 26) gilt im DBB/FIBA-Bereich ausschließlich für Angreifer im Vorfeld bei laufender Spieluhr. Verteidiger dürfen sich im europäischen Basketball beliebig lange in der Zone aufhalten.",
+    meta: {
+      zielgruppen: ["spieler", "schiedsrichter", "trainer", "zuschauer"],
+      kategorie: "regeln",
+      artikel: "Art. 26"
+    }
+  },
+  {
+    id: "q22",
+    frage: "Ein Angreifer hält den Ball im Feld und wird in unter 1 Meter Abstand aktiv verteidigt. Wie viel Zeit hat er zum Passen, Werfen oder Dribbeln?",
+    media: null,
+    antworten: [
+      "5 Sekunden",
+      "3 Sekunden",
+      "8 Sekunden",
+      "10 Sekunden"
+    ],
+    korrekteAntwort: 0,
+    erklaerung: "Ein eng bewachter bzw. bedrängter Spieler muss den Ball innerhalb von 5 Sekunden passen, werfen oder mit einem Dribbling beginnen (Art. 27). Andernfalls erfolgt ein Pfiff wegen 5-Sekunden-Übertretung und Ballverlust.",
+    meta: {
+      zielgruppen: ["spieler", "schiedsrichter", "trainer"],
+      kategorie: "regeln",
+      artikel: "Art. 27"
+    }
+  },
+  {
+    id: "q23",
+    frage: "Wann liegt eine regelwidrige Korbbeeinflussung (Goaltending) durch einen Verteidiger vor?",
+    media: null,
+    antworten: [
+      "Wenn er den Ball berührt, während dieser im Sinkflug und vollständig über Ringniveau ist",
+      "Sobald er den Ball oberhalb der Freiwurflinie blockt",
+      "Wenn er den Ball berührt, nachdem dieser das Brett berührt hat und noch steigt",
+      "Immer dann, wenn der Verteidiger höher springt als der Werfer"
+    ],
+    korrekteAntwort: 0,
+    erklaerung: "Goaltending (Art. 31) liegt vor, wenn ein Spieler einen Korbwurf berührt, während der Ball sich im Sinkflug auf den Korb zu befindet und vollständig über Ringniveau ist. Der Korb wird gewertet, als wäre er gefallen.",
+    meta: {
+      zielgruppen: ["schiedsrichter", "spieler", "zuschauer"],
+      kategorie: "regeln",
+      artikel: "Art. 31"
+    }
+  },
+  {
+    id: "q24",
+    frage: "Wie und wo muss ein Trainer eine Auszeit nach offiziellen DBB-Regeln beantragen?",
+    media: null,
+    antworten: [
+      "Persönlich am Anschreibetisch (Kampfgericht)",
+      "Durch lautes Rufen zum Schiedsrichter auf dem Feld",
+      "Durch Handzeichen des Spielführers auf dem Parkett",
+      "Per Knopfdruck an einer digitalen Trainer-Buzzer-Box"
+    ],
+    korrekteAntwort: 0,
+    erklaerung: "Der Trainer (oder Co-Trainer) muss die Auszeit persönlich am Anschreibetisch beim Kampfgericht anmelden (Art. 18). Rufe aufs Feld an die Schiedsrichter sind im DBB-Bereich unzulässig und werden nicht gewertet.",
+    meta: {
+      zielgruppen: ["trainer", "kampfgericht", "schiedsrichter"],
+      kategorie: "regeln",
+      artikel: "Art. 18"
+    }
+  },
+  {
+    id: "q25",
+    frage: "Ein Angreifer passt den Ball, und dieser prallt an das Bein eines Verteidigers ab. Wann liegt ein regelwidriges Fußspiel vor?",
+    media: null,
+    antworten: [
+      "Nur wenn der Verteidiger den Ball absichtlich getreten oder aktiv mit dem Bein geblockt hat",
+      "Immer, sobald der Ball den Fuß oder das Knie berührt",
+      "Nur wenn der Ball danach ins Aus rollt",
+      "Nur wenn der Verteidiger im Sprung war"
+    ],
+    korrekteAntwort: 0,
+    erklaerung: "Ein Fußspiel (Art. 13) ist nur dann eine Regelverletzung, wenn der Ball absichtlich mit Fuß, Bein oder Knie geschlagen oder getreten wird. Ein rein zufälliges, unabsichtliches Anprallen ist regelkonform und das Spiel läuft weiter.",
+    meta: {
+      zielgruppen: ["spieler", "schiedsrichter", "zuschauer"],
+      kategorie: "regeln",
+      artikel: "Art. 13"
+    }
+  },
+  {
+    id: "q26",
+    frage: "Wann wird ein Trainer wegen technischer Fouls (T-Fouls) automatisch disqualifiziert und muss die Halle verlassen?",
+    media: null,
+    antworten: [
+      "Nach 2 persönlichen T-Fouls ('C') oder 3 T-Fouls insgesamt gegen seine Bank ('B')",
+      "Bereits nach dem ersten technischen Foul",
+      "Erst nach 5 technischen Fouls wie ein Feldspieler",
+      "Nur wenn er das Spielfeld unerlaubt betritt"
+    ],
+    korrekteAntwort: 0,
+    erklaerung: "Ein Trainer wird disqualifiziert (Art. 36), wenn er 2 technische Fouls für eigenes unsportliches Verhalten erhalten hat ('C') oder insgesamt 3 technische Fouls (Kombination aus Bankstrafen 'B' und 'C') gegen sein Team verhängt wurden.",
+    meta: {
+      zielgruppen: ["trainer", "kampfgericht", "schiedsrichter"],
+      kategorie: "verhalten",
+      artikel: "Art. 36"
+    }
+  },
+  {
+    id: "q27",
+    frage: "Nachdem der Schiedsrichter dem Spieler den Ball für einen Einwurf übergeben hat: Wie viele Sekunden hat er für den Pass ins Spielfeld?",
+    media: null,
+    antworten: [
+      "5 Sekunden",
+      "8 Sekunden",
+      "10 Sekunden",
+      "14 Sekunden"
+    ],
+    korrekteAntwort: 0,
+    erklaerung: "Für die Ausführung eines Einwurfs stehen dem Spieler ab Ballübergabe durch den Schiedsrichter maximal 5 Sekunden zur Verfügung (Art. 17). Dauert der Einwurf länger, wechselt der Ballbesitz zum Gegner.",
+    meta: {
+      zielgruppen: ["spieler", "schiedsrichter", "kampfgericht", "zuschauer"],
+      kategorie: "regeln",
+      artikel: "Art. 17"
+    }
+  },
+  {
+    id: "q28",
+    frage: "Wie viele Spieler beider Teams dürfen sich maximal an den markierten Plätzen entlang der Freiwurfzone aufstellen?",
+    media: null,
+    antworten: [
+      "Maximal 5 Spieler: 3 Verteidiger und 2 Angreifer",
+      "Alle 10 Spieler auf dem Feld",
+      "Genau 4 Spieler: 2 Verteidiger und 2 Angreifer",
+      "Maximal 6 Spieler: 3 Verteidiger und 3 Angreifer"
+    ],
+    korrekteAntwort: 0,
+    erklaerung: "An den Freiwurflinien-Plätzen dürfen maximal 5 Spieler stehen (Art. 43): Die beiden ersten Plätze gehören Pflichtverteidigern, die nächsten beiden Angreifern, und der optionale dritte Platz der Verteidigung. Alle anderen müssen hinter der 3er-Linie warten.",
+    meta: {
+      zielgruppen: ["spieler", "schiedsrichter", "trainer", "kampfgericht"],
+      kategorie: "regeln",
+      artikel: "Art. 43"
     }
   }
 ];

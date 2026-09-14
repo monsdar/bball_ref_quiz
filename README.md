@@ -14,12 +14,12 @@ Die App verzichtet bewusst auf komplizierte Prüfungsmodi und konzentriert sich 
          │
          ▼
 [Quiz-Durchlauf]
-   └── 10 Fragen (MVP: 5 Fragen) abgestimmt auf die Rolle
+   └── 5 Fragen abgestimmt auf die Rolle (aus einem Pool von 28 Fragen)
    └── Bild / Illustration + 4 Multiple-Choice-Optionen
          │
          ▼
 [Ergebnis-Screen]
-   └── Score: "Super! Du hast 9 von 10 Fragen korrekt beantwortet!"
+   └── Score: "Super! Du hast 4 von 5 Fragen korrekt beantwortet!"
    └── 🔄 "Nochmal"-Button (führt zurück zum Start für eine neue Runde)
    └── 📤 "Teilen"-Button (Wordle-Style Share-Text inkl. Challenge-Link)
 ```
@@ -99,9 +99,9 @@ Die Fragen werden modular strukturiert (z. B. als JSON), sodass sie leicht erwei
 
 ---
 
-## 🎯 MVP-Ziel (Version 0.1)
+## 🎯 MVP-Ausbau (Version 0.2)
 
 1. Rollen-Auswahl ("Wer bist du?").
-2. Genau **5 Fragen** passend zur ausgewählten Rolle (mit Platzhalter- oder Signal-Bildern).
-3. Auswertungs-Screen mit Score.
-4. "Nochmal"-Button (Neustart) und "Teilen"-Button (mit Zwischenablage-Kopie).
+2. Genau **5 Fragen** passend zur ausgewählten Rolle – gezogen aus einem erweiterten Pool von **28 offiziellen DBB-Regelfragen** und FIBA-Handzeichen.
+3. Auswertungs-Screen mit Score (z. B. `4 / 5`) und 5-teiliger Wordle-Emoji-Zeile.
+4. "Nochmal"-Button (Neustart mit neuen zufälligen Fragen) und "Teilen"-Button (mit Zwischenablage-Kopie und Seed-Challenge).

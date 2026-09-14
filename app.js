@@ -318,13 +318,13 @@
     // Motivierender Text basierend auf Score
     let message = '';
     if (score === QUESTIONS_PER_ROUND) {
-      message = 'Perfekt! 🏆 Du beherrschst die Regeln im Schlaf!';
+      message = 'Perfekt! Du beherrschst die Regeln im Schlaf!';
     } else if (score >= 4) {
-      message = 'Super Leistung! 🔥 Du bist bestens vorbereitet für die Halle!';
+      message = 'Super Leistung! Du bist bestens vorbereitet für die Halle!';
     } else if (score >= 3) {
-      message = 'Solide Runde! 👍 Ein paar Feinheiten kannst du noch festigen.';
+      message = 'Solide Runde! Im nächsten Versuch schaffst du noch mehr!';
     } else {
-      message = 'Guter Versuch! 💪 Übung macht den Meister - starte direkt eine neue Runde!';
+      message = 'Guter Versuch! Starte direkt eine neue Runde!';
     }
     resultFeedbackMessage.textContent = message;
 
@@ -341,10 +341,10 @@
     const challengeUrl = `${window.location.origin}${window.location.pathname}?role=${currentRole}&seed=${currentSeed}`;
 
     return [
-      `🏀 Basketball Ref-Quiz (Rolle: ${roleName})`,
+      `🏀 BiBA Basketball Quiz`,
       `${emojiRow} (${score}/${QUESTIONS_PER_ROUND})`,
       ``,
-      `Schlägst du mein Ergebnis? Spiele dieselben 5 Fragen:`,
+      `Schlägst du mein Ergebnis? Spiele dieselben Fragen:`,
       `👉 ${challengeUrl}`
     ].join('\n');
   }
@@ -356,7 +356,7 @@
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'Basketball Regel-Quiz',
+          title: 'BiBA Basketball Quiz',
           text: shareText,
           url: challengeUrl
         });
