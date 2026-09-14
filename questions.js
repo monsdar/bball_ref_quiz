@@ -1,5 +1,5 @@
 /**
- * FIBA Basketball Regeltest - Fragenpool
+ * Basketball Regeltest - Fragenpool
  * 
  * Jede Frage enthält:
  * - id: Eindeutige Kennung
@@ -7,7 +7,7 @@
  * - media: Medienelement (type: 'image' | 'video' | 'youtube' | 'gif' | null)
  * - antworten: Array mit genau 4 Optionen
  * - korrekteAntwort: 0-basierter Index der richtigen Option
- * - erklaerung: Detaillierte Regelerklärung mit FIBA-Bezug
+ * - erklaerung: Detaillierte Regelerklärung mit FIBA/DBB-Bezug
  * - meta: Metadaten zur Filterung nach Zielgruppen und Kategorien
  */
 
@@ -31,7 +31,7 @@ const QUESTIONS = [
     meta: {
       zielgruppen: ["schiedsrichter", "spieler", "zuschauer"],
       kategorie: "handzeichen",
-      fibaArtikel: "Art. 25"
+      artikel: "Art. 25"
     }
   },
   {
@@ -53,7 +53,7 @@ const QUESTIONS = [
     meta: {
       zielgruppen: ["schiedsrichter", "kampfgericht", "spieler", "trainer", "zuschauer"],
       kategorie: "handzeichen",
-      fibaArtikel: "Art. B (Signale)"
+      artikel: "Art. B (Signale)"
     }
   },
   {
@@ -75,7 +75,7 @@ const QUESTIONS = [
     meta: {
       zielgruppen: ["schiedsrichter", "spieler", "zuschauer"],
       kategorie: "handzeichen",
-      fibaArtikel: "Art. 30"
+      artikel: "Art. 30"
     }
   },
   {
@@ -97,7 +97,7 @@ const QUESTIONS = [
     meta: {
       zielgruppen: ["schiedsrichter", "kampfgericht", "trainer", "zuschauer"],
       kategorie: "handzeichen",
-      fibaArtikel: "Art. 18"
+      artikel: "Art. 18"
     }
   },
   {
@@ -115,7 +115,7 @@ const QUESTIONS = [
     meta: {
       zielgruppen: ["kampfgericht", "schiedsrichter", "trainer"],
       kategorie: "regeln",
-      fibaArtikel: "Art. 29"
+      artikel: "Art. 29"
     }
   },
   {
@@ -133,7 +133,7 @@ const QUESTIONS = [
     meta: {
       zielgruppen: ["kampfgericht", "trainer", "schiedsrichter"],
       kategorie: "regeln",
-      fibaArtikel: "Art. 19"
+      artikel: "Art. 19"
     }
   },
   {
@@ -151,7 +151,7 @@ const QUESTIONS = [
     meta: {
       zielgruppen: ["spieler", "schiedsrichter", "zuschauer"],
       kategorie: "regeln",
-      fibaArtikel: "Art. 24"
+      artikel: "Art. 24"
     }
   },
   {
@@ -169,7 +169,7 @@ const QUESTIONS = [
     meta: {
       zielgruppen: ["spieler", "schiedsrichter", "kampfgericht"],
       kategorie: "regeln",
-      fibaArtikel: "Art. 28"
+      artikel: "Art. 28"
     }
   },
   {
@@ -183,11 +183,11 @@ const QUESTIONS = [
       "Unbegrenzt viele kurze Auszeiten"
     ],
     korrekteAntwort: 0,
-    erklaerung: "In der zweiten Halbzeit stehen jedem Team bis zu 3 Auszeiten zu. Taktisch wichtig für den Breitensport: In den letzten 2 Spielminuten des vierten Viertels dürfen davon maximal 2 Auszeiten genommen werden (Art. 18).",
+    erklaerung: "In der zweiten Halbzeit stehen jedem Team bis zu 3 Auszeiten zu. Taktisch wichtig: In den letzten 2 Spielminuten des vierten Viertels dürfen davon maximal 2 Auszeiten genommen werden (Art. 18).",
     meta: {
       zielgruppen: ["trainer", "kampfgericht", "schiedsrichter"],
       kategorie: "regeln",
-      fibaArtikel: "Art. 18"
+      artikel: "Art. 18"
     }
   },
   {
@@ -205,7 +205,7 @@ const QUESTIONS = [
     meta: {
       zielgruppen: ["trainer", "schiedsrichter"],
       kategorie: "verhalten",
-      fibaArtikel: "Art. 7"
+      artikel: "Art. 7"
     }
   },
   {
@@ -223,7 +223,7 @@ const QUESTIONS = [
     meta: {
       zielgruppen: ["zuschauer", "spieler"],
       kategorie: "regeln",
-      fibaArtikel: "Art. 16"
+      artikel: "Art. 16"
     }
   },
   {
@@ -241,7 +241,7 @@ const QUESTIONS = [
     meta: {
       zielgruppen: ["schiedsrichter", "spieler", "trainer"],
       kategorie: "regeln",
-      fibaArtikel: "Art. 33"
+      artikel: "Art. 33"
     }
   }
 ];

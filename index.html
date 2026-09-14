@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="description" content="Interaktives FIBA Basketball Regel-Quiz für Schiedsrichter, Kampfgericht, Spieler, Trainer und Zuschauer im Breitensport.">
+  <meta name="description"
+    content="Basketball Regel-Quiz für Schiedsrichter, Kampfgericht, Spieler, Trainer und Zuschauer">
   <meta name="theme-color" content="#ea580c">
-  <title>FIBA Basketball Regel-Quiz 🏀</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏀</text></svg>">
+  <title>Basketball Regel-Quiz 🏀</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏀</text></svg>">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="app-wrapper">
     <!-- Header -->
@@ -16,8 +20,8 @@
       <div class="header-logo">
         <span class="logo-ball">🏀</span>
         <div class="header-titles">
-          <h1 class="app-title">RefQuiz</h1>
-          <span class="app-subtitle">FIBA Basketball Breitensport</span>
+          <h1 class="app-title">BiBAQuiz</h1>
+          <span class="app-subtitle">Basketball Regeln</span>
         </div>
       </div>
       <div id="header-seed-badge" class="seed-badge hidden" title="Challenge-Modus aktiv">
@@ -32,15 +36,14 @@
       <section id="screen-role" class="screen screen-active">
         <div class="intro-card">
           <h2 class="section-title">Wer bist du?</h2>
-          <p class="section-desc">Wähle deine Rolle im Basketball aus. Wir stellen dir 5 passende Regelfragen für dein Spiel!</p>
         </div>
 
         <div class="roles-grid">
           <button type="button" class="role-card" data-role="schiedsrichter">
-            <span class="role-icon">🟨</span>
+            <span class="role-icon">✌️</span>
             <div class="role-info">
               <span class="role-name">Schiedsrichter</span>
-              <span class="role-details">Alle Fragen: Handzeichen, Zylinderprinzip, knifflige Pfiffe</span>
+              <span class="role-details">Alle Fragen: Handzeichen, Foultypen, knifflige Pfiffe</span>
             </div>
             <span class="role-arrow">➔</span>
           </button>
@@ -66,7 +69,7 @@
           <button type="button" class="role-card" data-role="trainer">
             <span class="role-icon">📋</span>
             <div class="role-info">
-              <span class="role-name">Trainer / Coach</span>
+              <span class="role-name">Coach</span>
               <span class="role-details">Auszeiten, Spielerwechsel, Bankverhalten, taktische Regeln</span>
             </div>
             <span class="role-arrow">➔</span>
@@ -117,7 +120,7 @@
                 </div>
 
                 <p id="feedback-explanation" class="feedback-text"></p>
-                <span id="feedback-rule" class="feedback-rule-badge">FIBA Art. X</span>
+                <span id="feedback-rule" class="feedback-rule-badge">Art. X</span>
 
                 <button type="button" id="btn-next-question" class="btn btn-primary btn-block">
                   <span>Weiter</span>
@@ -135,14 +138,14 @@
           <div id="result-trophy" class="result-trophy">🏆</div>
           <span id="result-role-badge" class="badge-role">Rolle: Spieler</span>
           <h2 id="result-headline" class="result-title">Quiz beendet!</h2>
-          
+
           <div class="score-display">
             <span id="result-score-number" class="score-number">4 / 5</span>
             <span class="score-label">Fragen korrekt</span>
           </div>
 
           <p id="result-feedback-message" class="result-message">
-            Großartig! Du kennst dich im Basketball richtig gut aus!
+            Gut gemacht! Denkst du, dass du dich noch verbessern kannst?
           </p>
 
           <!-- Wordle-Style Emoji Summary -->
@@ -170,7 +173,9 @@
 
     <!-- Footer -->
     <footer class="app-footer">
-      <p>Basierend auf den offiziellen <strong>FIBA Basketball-Regeln</strong> (Breitensport & Amateure).</p>
+      <p>Basierend auf den offiziellen <strong><a
+            href="https://www.basketball-bund.de/wp-content/uploads/sites/2/2023/01/DBB_Offizielle-Basketball-Regeln_2022.pdf">DBB
+            Basketball-Regeln</a></strong>.</p>
     </footer>
   </div>
 
@@ -178,4 +183,5 @@
   <script src="questions.js"></script>
   <script src="app.js"></script>
 </body>
+
 </html>

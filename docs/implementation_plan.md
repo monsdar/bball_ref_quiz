@@ -1,6 +1,6 @@
-# Implementierungsplan: MVP FIBA Basketball Regel-Quiz (Aktualisiert)
+# Implementierungsplan: MVP Basketball Regel-Quiz (Aktualisiert)
 
-Erstellung des interaktiven, mobilen MVPs für das FIBA Basketball Regel-Quiz mit Vanilla HTML, modernem CSS und JavaScript.
+Erstellung des interaktiven, mobilen MVPs für das Basketball Regel-Quiz mit Vanilla HTML, modernem CSS und JavaScript.
 
 ---
 

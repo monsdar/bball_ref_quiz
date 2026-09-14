@@ -1,4 +1,4 @@
-# FIBA Basketball Regel-Quiz (Breitensport) 🏀
+# DBB Basketball Regel-Quiz (Breitensport) 🏀
 
 Eine mobile-optimierte, statische Web-App für GitHub Pages, die Spielern, Trainern, Kampfgericht, Schiedsrichtern und Zuschauern im Amateur- und Breitensport hilft, Basketball- und Schiedsrichterregeln spielerisch zu lernen und zu testen.
 

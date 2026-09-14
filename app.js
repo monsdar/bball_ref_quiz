@@ -1,6 +1,3 @@
-/**
- * FIBA Basketball Regeltest - Anwendungslogik
- */
 
 (function () {
   'use strict';
@@ -115,7 +112,7 @@
       mediaContainer.innerHTML = `
         <div class="media-placeholder">
           <span class="media-placeholder-icon">🏀</span>
-          <span>FIBA Regelfrage (Breitensport)</span>
+          <span>DBB Regelfrage</span>
         </div>
       `;
       return;
@@ -126,7 +123,7 @@
       case 'gif': {
         const img = document.createElement('img');
         img.src = media.src;
-        img.alt = media.alt || 'FIBA Schiedsrichter Handzeichen';
+        img.alt = media.alt || 'DBB Schiedsrichter Handzeichen';
         img.loading = 'eager';
         mediaContainer.appendChild(img);
         break;
@@ -156,7 +153,7 @@
         mediaContainer.innerHTML = `
           <div class="media-placeholder">
             <span class="media-placeholder-icon">🏀</span>
-            <span>FIBA Regelfrage</span>
+            <span>DBB Regelfrage</span>
           </div>
         `;
       }
@@ -285,7 +282,7 @@
       ? `<strong style="display:block; margin-bottom: 6px; color: var(--text-main);">Richtige Antwort: ${escapeHtml(correctOption.text)}</strong>`
       : '';
     feedbackExplanation.innerHTML = `${recapHtml}${escapeHtml(q.erklaerung)}`;
-    feedbackRule.textContent = q.meta.fibaArtikel || 'FIBA Regelwerk';
+    feedbackRule.textContent = q.meta.artikel || 'DBB Regelwerk';
 
     // Button Beschriftung (bei letzter Frage "Zum Ergebnis")
     if (currentIndex === QUESTIONS_PER_ROUND - 1) {
@@ -321,13 +318,13 @@
     // Motivierender Text basierend auf Score
     let message = '';
     if (score === QUESTIONS_PER_ROUND) {
-      message = 'Perfekt! 🏆 Du beherrschst die FIBA-Regeln im Schlaf!';
+      message = 'Perfekt! 🏆 Du beherrschst die Regeln im Schlaf!';
     } else if (score >= 4) {
       message = 'Super Leistung! 🔥 Du bist bestens vorbereitet für die Halle!';
     } else if (score >= 3) {
       message = 'Solide Runde! 👍 Ein paar Feinheiten kannst du noch festigen.';
     } else {
-      message = 'Guter Versuch! 💪 Übung macht den Meister – starte direkt eine neue Runde!';
+      message = 'Guter Versuch! 💪 Übung macht den Meister - starte direkt eine neue Runde!';
     }
     resultFeedbackMessage.textContent = message;
 
@@ -359,7 +356,7 @@
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'FIBA Basketball Regel-Quiz',
+          title: 'Basketball Regel-Quiz',
           text: shareText,
           url: challengeUrl
         });

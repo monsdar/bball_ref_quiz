@@ -1,6 +1,6 @@
-# Walkthrough: MVP FIBA Basketball Regel-Quiz 🏀
+# Walkthrough: MVP Basketball Regel-Quiz 🏀
 
-Der MVP für das interaktive, mobile **FIBA Basketball Regel-Quiz** ist fertiggestellt. Die App läuft komplett ohne Build-Tools (Vanilla HTML/CSS/JS) und kann direkt über **GitHub Pages** gehostet oder lokal im Browser geöffnet werden.
+Der MVP für das interaktive, mobile **Basketball Regel-Quiz** ist fertiggestellt. Die App läuft komplett ohne Build-Tools (Vanilla HTML/CSS/JS) und kann direkt über **GitHub Pages** gehostet oder lokal im Browser geöffnet werden.
 
 ---
 
@@ -23,7 +23,7 @@ Der MVP für das interaktive, mobile **FIBA Basketball Regel-Quiz** ist fertigge
 - Nach dem Antippen einer Antwort legt sich das Feedback-Panel über den Antwortbereich:
   - Großes Status-Badge: **„Richtig! 🎉“** (grün) bzw. **„Falsch! ❌“** (rot).
   - Bei falscher Antwort Anzeige der korrekten Lösung.
-  - Detaillierte Erklärung mit Bezug auf den offiziellen FIBA-Artikel.
+  - Detaillierte Erklärung mit Bezug auf den offiziellen FIBA/DBB-Artikel.
   - Daumenfreundlicher **„Weiter ➔“** bzw. **„Zum Ergebnis 🏆“**-Button.
 
 ### 4. Ergebnis & Wordle-Style Sharing mit URL-Seed
@@ -43,7 +43,7 @@ e:/Projects/ref_test/
 ├── index.html                           # App-Struktur mit den 3 Screens & Overlay
 ├── style.css                            # Mobile-First Styles, Dark-Mode, Touch-Targets
 ├── app.js                               # Quiz-Logik, Mulberry32 PRNG, Feedback & Share
-├── questions.js                         # 12 praxisnahe FIBA-Fragen mit Metadaten
+├── questions.js                         # Praxisnahe Fragen mit Metadaten
 ├── assets/
 │   └── signals/
 │       ├── travelling.svg               # Handzeichen: Schrittfehler
@@ -85,7 +85,7 @@ npx serve .
    ```bash
    git init
    git add .
-   git commit -m "Initial MVP: FIBA Basketball Regel-Quiz"
+   git commit -m "Initial MVP: Basketball Regel-Quiz"
    git remote add origin https://github.com/<dein-user>/ref_test.git
    git push -u origin main
    ```
