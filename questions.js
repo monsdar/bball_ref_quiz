@@ -15,11 +15,7 @@ const QUESTIONS = [
   {
     id: "q01",
     frage: "Was zeigt der Schiedsrichter mit zwei vor der Brust umeinander rotierenden Fäusten an?",
-    media: {
-      type: "image",
-      src: "assets/signals/travelling.svg",
-      alt: "Schiedsrichter rollt Fäuste vor der Brust"
-    },
+    media: null,
     antworten: [
       "Schrittfehler (Travelling)",
       "Doppeldribbel",
@@ -37,11 +33,7 @@ const QUESTIONS = [
   {
     id: "q02",
     frage: "Was bedeutet eine senkrecht nach oben gereckte, geschlossene Faust des Schiedsrichters?",
-    media: {
-      type: "image",
-      src: "assets/signals/stop_clock_foul.svg",
-      alt: "Schiedsrichter hebt geballte Faust nach oben"
-    },
+    media: null,
     antworten: [
       "Uhr anhalten wegen Foul",
       "Wechselnder Ballbesitz (Sprungball)",
@@ -59,11 +51,7 @@ const QUESTIONS = [
   {
     id: "q03",
     frage: "Welches Vergehen wird angezeigt, wenn der Schiedsrichter den Arm mit Zeigefinger vor dem Körper hin und her winkt?",
-    media: {
-      type: "image",
-      src: "assets/signals/backcourt.svg",
-      alt: "Schiedsrichter winkt mit Arm und Zeigefinger quer vor dem Körper"
-    },
+    media: null,
     antworten: [
       "Rückspiel ins Rückfeld (Backcourt)",
       "Einwurf muss wiederholt werden",
@@ -81,11 +69,7 @@ const QUESTIONS = [
   {
     id: "q04",
     frage: "Was signalisieren die Hände, wenn eine flache Hand horizontal über dem aufgerichteten Zeigefinger der anderen Hand liegt (T-Form)?",
-    media: {
-      type: "image",
-      src: "assets/signals/timeout.svg",
-      alt: "Schiedsrichter bildet mit den Händen ein T"
-    },
+    media: null,
     antworten: [
       "Auszeit (Timeout)",
       "Korb zählt nicht (Wurf annulliert)",
@@ -247,11 +231,7 @@ const QUESTIONS = [
   {
     id: "q13",
     frage: "Was zeigt der Schiedsrichter an, wenn er beide Arme über den Kopf hebt und mit einer Hand das andere Handgelenk festhält?",
-    media: {
-      type: "image",
-      src: "assets/signals/unsportsmanlike_foul.svg",
-      alt: "Schiedsrichter hält Handgelenk über dem Kopf fest"
-    },
+    media: null,
     antworten: [
       "Unsportliches Foul (Unsportsmanlike Foul)",
       "Disqualifizierendes Foul",
@@ -269,11 +249,7 @@ const QUESTIONS = [
   {
     id: "q14",
     frage: "Was signalisiert der Schiedsrichter, wenn er mit den flachen Handflächen beider Hände vor der Brust ein deutliches 'T' formt?",
-    media: {
-      type: "image",
-      src: "assets/signals/technical_foul.svg",
-      alt: "Schiedsrichter formt ein T mit beiden flachen Händen"
-    },
+    media: null,
     antworten: [
       "Technisches Foul (Verhalten/Disziplin)",
       "Auszeit für das Heimteam",
@@ -291,11 +267,7 @@ const QUESTIONS = [
   {
     id: "q15",
     frage: "Welches Foul signalisiert der Schiedsrichter, wenn er mit der geballten Faust in die geöffnete Handfläche der anderen Hand schlägt?",
-    media: {
-      type: "image",
-      src: "assets/signals/charging_foul.svg",
-      alt: "Schiedsrichter schlägt mit Faust in die flache Handfläche"
-    },
+    media: null,
     antworten: [
       "Stürmerfoul / Offensivfoul (Charging)",
       "Blockier-Foul des Verteidigers",
@@ -313,11 +285,7 @@ const QUESTIONS = [
   {
     id: "q16",
     frage: "Was zeigt der Schiedsrichter mit beiden nach oben ausgestreckten Daumen ('Thumbs Up') an?",
-    media: {
-      type: "image",
-      src: "assets/signals/jump_ball.svg",
-      alt: "Schiedsrichter streckt beide Daumen nach oben"
-    },
+    media: null,
     antworten: [
       "Gehaltener Ball / Wechselnder Ballbesitz (Sprungball)",
       "Treffer ist gültig und zählt",
@@ -335,11 +303,7 @@ const QUESTIONS = [
   {
     id: "q17",
     frage: "Was bedeutet die Schiedsrichter-Geste, bei der beide Hände mit den Handflächen nach unten abwechselnd auf und ab bewegt werden?",
-    media: {
-      type: "image",
-      src: "assets/signals/illegal_dribble.svg",
-      alt: "Schiedsrichter bewegt Hände abwechselnd auf und ab"
-    },
+    media: null,
     antworten: [
       "Unzulässiges Dribbling / Doppeldribbel",
       "Schrittfehler",
