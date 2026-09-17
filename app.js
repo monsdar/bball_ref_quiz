@@ -29,6 +29,7 @@
   const headerSeedBadge = document.getElementById('header-seed-badge');
 
   // Quiz DOM
+  const questionCard = document.querySelector('.question-card');
   const quizRoleBadge = document.getElementById('quiz-role-badge');
   const quizProgressText = document.getElementById('quiz-progress-text');
   const quizProgressFill = document.getElementById('quiz-progress-fill');
@@ -42,6 +43,12 @@
   const feedbackExplanation = document.getElementById('feedback-explanation');
   const feedbackRule = document.getElementById('feedback-rule');
   const btnNextQuestion = document.getElementById('btn-next-question');
+
+  // Lightbox DOM
+  const mediaLightbox = document.getElementById('media-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const lightboxClose = document.getElementById('lightbox-close');
 
   // Result DOM
   const resultRoleBadge = document.getElementById('result-role-badge');
@@ -102,33 +109,69 @@
   }
 
   // -------------------------------------------------------------
+  // Lightbox / Zoom-Vorschau
+  // -------------------------------------------------------------
+  function openLightbox(src, alt) {
+    if (!mediaLightbox || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || 'Vergrößertes Handzeichen';
+    if (lightboxCaption) {
+      lightboxCaption.textContent = alt || '';
+    }
+    mediaLightbox.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!mediaLightbox) return;
+    mediaLightbox.classList.add('hidden');
+    if (lightboxImg) lightboxImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  // -------------------------------------------------------------
   // Polymorpher Media-Renderer (SVG, PNG, GIF, Video, YouTube)
   // -------------------------------------------------------------
   function renderMedia(media) {
     mediaContainer.innerHTML = '';
+    mediaContainer.onclick = null;
+    mediaContainer.classList.remove('media-zoomable');
+
+    // Falls ein einfacher Dateipfad/String übergeben wird
+    if (typeof media === 'string') {
+      media = { type: 'image', src: media };
+    }
 
     if (!media || !media.type) {
-      // Fallback: Eleganter Basketball-Grafik-Platzhalter
-      mediaContainer.innerHTML = `
-        <div class="media-placeholder">
-          <span class="media-placeholder-icon">🏀</span>
-          <span>DBB Regelfrage</span>
-        </div>
-      `;
+      // Keine Medien vorhanden: Container bleibt leer, kein Platzhalter
       return;
     }
 
     switch (media.type) {
       case 'image':
       case 'gif': {
+        if (!media.src) return;
         const img = document.createElement('img');
         img.src = media.src;
         img.alt = media.alt || 'DBB Schiedsrichter Handzeichen';
         img.loading = 'eager';
+        img.className = 'zoomable-media';
+
+        const zoomBadge = document.createElement('span');
+        zoomBadge.className = 'media-zoom-badge';
+        zoomBadge.innerHTML = '🔍 Großansicht';
+        zoomBadge.setAttribute('aria-hidden', 'true');
+
         mediaContainer.appendChild(img);
+        mediaContainer.appendChild(zoomBadge);
+
+        mediaContainer.classList.add('media-zoomable');
+        mediaContainer.title = 'Klicken zum Vergrößern 🔍';
+        mediaContainer.onclick = () => openLightbox(media.src, media.alt);
         break;
       }
       case 'video': {
+        if (!media.src) return;
         const video = document.createElement('video');
         video.src = media.src;
         video.autoplay = true;
@@ -140,6 +183,7 @@
         break;
       }
       case 'youtube': {
+        if (!media.videoId) return;
         const iframe = document.createElement('iframe');
         const start = media.start ? `&start=${media.start}` : '';
         const end = media.end ? `&end=${media.end}` : '';
@@ -150,12 +194,7 @@
         break;
       }
       default: {
-        mediaContainer.innerHTML = `
-          <div class="media-placeholder">
-            <span class="media-placeholder-icon">🏀</span>
-            <span>DBB Regelfrage</span>
-          </div>
-        `;
+        break;
       }
     }
   }
@@ -223,13 +262,22 @@
     if (!q) return;
 
     // Fortschritt
-    quizProgressText.textContent = `Frage ${currentIndex + 1} von ${QUESTIONS_PER_ROUND}`;
-    const progressPercent = (currentIndex / QUESTIONS_PER_ROUND) * 100;
+    const totalQuestions = activeQuestions.length;
+    quizProgressText.textContent = `Frage ${currentIndex + 1} von ${totalQuestions}`;
+    const progressPercent = (currentIndex / totalQuestions) * 100;
     quizProgressFill.style.width = `${progressPercent}%`;
 
     // Medien und Fragetext
     renderMedia(q.media);
     questionText.textContent = q.frage;
+
+    // Zweispaltiges Layout aktivieren, wenn visuelle Medien vorhanden sind
+    if (questionCard) {
+      const hasMedia = Boolean(
+        q.media && (typeof q.media === 'string' || q.media.src || q.media.videoId)
+      );
+      questionCard.classList.toggle('has-media', hasMedia);
+    }
 
     // Feedback Overlay verstecken
     feedbackOverlay.classList.add('hidden');
@@ -285,14 +333,14 @@
     feedbackRule.textContent = q.meta.artikel || 'DBB Regelwerk';
 
     // Button Beschriftung (bei letzter Frage "Zum Ergebnis")
-    if (currentIndex === QUESTIONS_PER_ROUND - 1) {
+    if (currentIndex === activeQuestions.length - 1) {
       btnNextQuestion.innerHTML = `<span>Zum Ergebnis</span> <span class="btn-arrow">🏆</span>`;
     } else {
       btnNextQuestion.innerHTML = `<span>Weiter</span> <span class="btn-arrow">➔</span>`;
     }
 
     // Fortschrittsbalken aktualisieren (aktuelle Frage abgeschlossen)
-    const completedPercent = ((currentIndex + 1) / QUESTIONS_PER_ROUND) * 100;
+    const completedPercent = ((currentIndex + 1) / activeQuestions.length) * 100;
     quizProgressFill.style.width = `${completedPercent}%`;
 
     // Overlay einblenden
@@ -301,7 +349,7 @@
 
   function handleNextQuestion() {
     currentIndex++;
-    if (currentIndex < QUESTIONS_PER_ROUND) {
+    if (currentIndex < activeQuestions.length) {
       renderCurrentQuestion();
     } else {
       showResults();
@@ -312,12 +360,13 @@
   // Ergebnis & Wordle-Style Sharing
   // -------------------------------------------------------------
   function showResults() {
+    const totalQuestions = activeQuestions.length;
     resultRoleBadge.textContent = `Rolle: ${ROLE_NAMES[currentRole] || currentRole}`;
-    resultScoreNumber.textContent = `${score} / ${QUESTIONS_PER_ROUND}`;
+    resultScoreNumber.textContent = `${score} / ${totalQuestions}`;
 
     // Motivierender Text basierend auf Score
     let message = '';
-    if (score === QUESTIONS_PER_ROUND) {
+    if (score === totalQuestions) {
       message = 'Perfekt! Du beherrschst die Regeln im Schlaf!';
     } else if (score >= 4) {
       message = 'Super Leistung! Du bist bestens vorbereitet für die Halle!';
@@ -336,13 +385,14 @@
   }
 
   function buildShareText() {
+    const totalQuestions = activeQuestions.length;
     const roleName = ROLE_NAMES[currentRole] || 'Basketball-Fan';
     const emojiRow = answersLog.map((correct) => (correct ? '🟩' : '🟥')).join('');
     const challengeUrl = `${window.location.origin}${window.location.pathname}?role=${currentRole}&seed=${currentSeed}`;
 
     return [
       `🏀 BiBA Basketball Quiz`,
-      `${emojiRow} (${score}/${QUESTIONS_PER_ROUND})`,
+      `${emojiRow} (${score}/${totalQuestions})`,
       ``,
       `Schlägst du mein Ergebnis? Spiele dieselben Fragen:`,
       `👉 ${challengeUrl}`
@@ -444,6 +494,23 @@
     // Share & Restart
     btnShare.addEventListener('click', handleShare);
     btnRestart.addEventListener('click', restartQuiz);
+
+    // Lightbox Schließen-Events
+    if (lightboxClose) {
+      lightboxClose.addEventListener('click', closeLightbox);
+    }
+    if (mediaLightbox) {
+      mediaLightbox.addEventListener('click', (e) => {
+        if (e.target === mediaLightbox || e.target.classList.contains('lightbox-backdrop')) {
+          closeLightbox();
+        }
+      });
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mediaLightbox.classList.contains('hidden')) {
+          closeLightbox();
+        }
+      });
+    }
 
     // URL Query Parameter prüfen (?role=...&seed=...)
     const params = new URLSearchParams(window.location.search);

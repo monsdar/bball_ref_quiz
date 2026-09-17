@@ -102,30 +102,32 @@
           <!-- Dynamic Media Container (SVG, GIF, Image, Video, YouTube) -->
           <div id="media-container" class="media-box"></div>
 
-          <!-- Question Heading -->
-          <h2 id="question-text" class="question-heading">Fragetext lädt...</h2>
+          <div class="question-content">
+            <!-- Question Heading -->
+            <h2 id="question-text" class="question-heading">Fragetext lädt...</h2>
 
-          <!-- Answers Container with Feedback Overlay -->
-          <div class="answers-wrapper">
-            <div id="answers-grid" class="answers-grid">
-              <!-- Buttons dynamically generated in app.js -->
-            </div>
+            <!-- Answers Container with Feedback Overlay -->
+            <div class="answers-wrapper">
+              <div id="answers-grid" class="answers-grid">
+                <!-- Buttons dynamically generated in app.js -->
+              </div>
 
-            <!-- Focused Feedback Overlay -->
-            <div id="feedback-overlay" class="feedback-overlay hidden" aria-live="polite">
-              <div class="feedback-content">
-                <div id="feedback-status" class="feedback-status">
-                  <span id="feedback-icon" class="feedback-icon">🎉</span>
-                  <h3 id="feedback-title" class="feedback-title">Richtig!</h3>
+              <!-- Focused Feedback Overlay -->
+              <div id="feedback-overlay" class="feedback-overlay hidden" aria-live="polite">
+                <div class="feedback-content">
+                  <div id="feedback-status" class="feedback-status">
+                    <span id="feedback-icon" class="feedback-icon">🎉</span>
+                    <h3 id="feedback-title" class="feedback-title">Richtig!</h3>
+                  </div>
+
+                  <p id="feedback-explanation" class="feedback-text"></p>
+                  <span id="feedback-rule" class="feedback-rule-badge">Art. X</span>
+
+                  <button type="button" id="btn-next-question" class="btn btn-primary btn-block">
+                    <span>Weiter</span>
+                    <span class="btn-arrow">➔</span>
+                  </button>
                 </div>
-
-                <p id="feedback-explanation" class="feedback-text"></p>
-                <span id="feedback-rule" class="feedback-rule-badge">Art. X</span>
-
-                <button type="button" id="btn-next-question" class="btn btn-primary btn-block">
-                  <span>Weiter</span>
-                  <span class="btn-arrow">➔</span>
-                </button>
               </div>
             </div>
           </div>
@@ -177,6 +179,16 @@
             href="https://www.basketball-bund.de/wp-content/uploads/sites/2/2023/01/DBB_Offizielle-Basketball-Regeln_2022.pdf">DBB
             Basketball-Regeln</a></strong>.</p>
     </footer>
+  </div>
+
+  <!-- Lightbox Modal for Media Zoom -->
+  <div id="media-lightbox" class="media-lightbox hidden" role="dialog" aria-modal="true" aria-label="Vergrößerte Bildansicht">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <button type="button" id="lightbox-close" class="lightbox-close-btn" aria-label="Schließen">✕</button>
+      <img id="lightbox-img" class="lightbox-img" src="" alt="Vergrößertes Handzeichen">
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
   </div>
 
   <!-- Scripts -->
